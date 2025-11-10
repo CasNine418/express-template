@@ -1,0 +1,7 @@
+/node_modules
+/cert/*
+/dist
+package-lock.json
+pnpm-lock.yaml
+/logs/*
+/declar/*

@@ -1,0 +1,42 @@
+# Server Configuration
+
+[server]
+
+    [server.base]
+    port = 3000
+    cors_origin = "*"
+    mode = "http" # or "https"
+    env = "development" # "development", "production", or "test"
+
+    [server.rate]
+    limit = 100 # max requests
+    window_ms = 15 # in minutes
+
+    [server.ssl]
+    key = "path/to/private-key.pem"
+    cert = "path/to/certificate.pem"
+
+    [server.database]
+    driver = "mysql" # or "postgresql", etc. via typeorm
+    host = "localhost"
+    port = 3306
+    user = "your_username"
+    password = "your_password"
+    database = "your_database_name"
+
+    [server.log]
+    type = "pretty" # "json", "pretty", or "hidden"
+    hide_log_position = false
+    min_level = "info" # "trace", "debug", "info", "warn", "error", "fatal"
+    pretty_log_time_zone = "local" # "UTC" or "local"
+
+[options]
+
+    [options.middlewares]
+    rate_limiter = true
+    helmet = true
+
+    [options.middlewares.request_logger]
+        logger = true
+        slient = true
+    
