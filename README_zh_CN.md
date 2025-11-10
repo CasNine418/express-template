@@ -1,5 +1,7 @@
 # Express TypeScript 模板项目
 
+[English](https://github.com/CasNine418/express-template/blob/master/README.md) | [中文](https://github.com/CasNine418/express-template/blob/master/README_zh_CN.md)
+
 一个基于 Express 和 TypeScript 构建的现代化 Web 应用程序模板，集成了常用中间件和最佳实践。
 
 ## 项目特点
