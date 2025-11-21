@@ -1,7 +1,7 @@
 import { ResponseMsg } from "../../model/response";
 import { BaseController } from "../base_controller";
 import { Request, Response } from 'express';
-import { UserService, User } from '../../service/user/user_service';
+import { UserService } from '../../service/user/user_service';
 
 export class UserController extends BaseController {
     private userService: UserService;

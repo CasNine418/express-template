@@ -13,6 +13,7 @@ import catchJson from './src/middleware/catch_json';
 import catchNotFound from './src/middleware/catch_not_found';
 import { BaseController } from './src/api/base_controller';
 import { UserController } from './src/api/user/user_controller';
+import { initializeDataSource } from './src/model/orm/database';
 
 const log = new Log('app');
 
@@ -81,6 +82,10 @@ class AppServer {
         });
     }
 
+    private initializeDatabase() {
+        initializeDataSource();
+    }
+
     private initializeErrorHandling(): void {
         this.app.use(catchJson);
         this.app.use(catchNotFound);
@@ -91,6 +96,7 @@ class AppServer {
     }
 
     public init() {
+        this.initializeDatabase();
         this.initializeMiddlewares();
         this.initializeControllers();
         this.initializeErrorHandling();
