@@ -14,7 +14,15 @@ const logConfigSchema = z.object({
 });
 
 const databaseConfigSchema = z.object({
-    driver: z.string(),
+    driver: z.union([
+        z.literal("mysql"), z.literal("postgres"), z.literal("cockroachdb"),
+        z.literal("sap"), z.literal("mariadb"), z.literal("sqlite"),
+        z.literal("cordova"), z.literal("react-native"), z.literal("nativescript"),
+        z.literal("sqljs"), z.literal("oracle"), z.literal("mssql"),
+        z.literal("mongodb"), z.literal("aurora-mysql"), z.literal("aurora-postgres"),
+        z.literal("expo"), z.literal("better-sqlite3"), z.literal("capacitor"),
+        z.literal("spanner")
+    ]),
     host: z.string(),
     port: z.number().int().positive().default(3306),
     user: z.string(),
